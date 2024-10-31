@@ -1,0 +1,52 @@
+import React, { useState } from 'react'
+import TodoInterface from '../../types'
+
+interface AddFromProps {
+    addTodoList:(todo:TodoInterface)=>Promise<void>
+}
+
+const AddFrom:React.FC<AddFromProps> = ({addTodoList}) => {
+    const [newTodo,setNewTodo]= useState<TodoInterface>();
+    const handleSubmit = (e: any): void => {
+        e.preventDefault();
+        let newObj:TodoInterface ={
+            name:e.target.elements.name.value,
+            status:e.target.elements.Status.value,
+            priority:e.target.elements.priority.value,
+            description:e.target.elements.name.value,
+
+
+
+        }
+        setNewTodo(newObj)
+        addTodoList(newTodo!)
+        console.log(newObj)
+        
+      };
+  return (
+    <form className='Todo-from' onSubmit={handleSubmit}>
+        <input name='name' type="text" 
+        placeholder='enter your name'/>
+
+        <select name="Status" id="Status">
+        <option value="In progress">In progress</option>
+        <option value="Completed">Completed</option>
+        <option value="Pending">Pending</option>
+        
+        </select>
+        <select name="priority" id="priority">
+            <option value="Low">Low</option>
+            <option value="High">High</option>
+        </select>
+        <input type="text" name="description" id="" 
+        placeholder='enter the description'/>
+
+       
+        <input type="submit"  />
+        
+
+    </form>
+  )
+}
+
+export default AddFrom
