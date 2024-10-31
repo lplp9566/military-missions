@@ -29,7 +29,7 @@ const AddFrom:React.FC<AddFromProps> = ({addTodoList}) => {
         placeholder='enter your name'/>
 
         <select name="Status" id="Status">
-        <option value="In progress">In progress</option>
+        <option value="In Progress">In Progress</option>
         <option value="Completed">Completed</option>
         <option value="Pending">Pending</option>
         
