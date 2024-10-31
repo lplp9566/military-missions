@@ -20,7 +20,7 @@ const AddFrom:React.FC<AddFromProps> = ({addTodoList}) => {
         }
         setNewTodo(newObj)
         addTodoList(newTodo!)
-        console.log(newObj)
+        
         
       };
   return (
