@@ -3,10 +3,11 @@ import TodoInterface from '../../types'
 
 interface TodoParms{
     todo:TodoInterface;
+    deleteTodo:(todoId:string )=>Promise<void>
 }
 
-const TodoItem:React.FC<TodoParms> = ({todo}) => {
-  {console.log(todo.id)}
+const TodoItem:React.FC<TodoParms> = ({todo,deleteTodo}) => {
+
   return (
     <div>
       <div>
@@ -14,10 +15,11 @@ const TodoItem:React.FC<TodoParms> = ({todo}) => {
         <h4>Status:{todo.status}</h4>
         <h4>Priority:{`{${todo.priority}}`}</h4>
         <h4>Description{todo.description}</h4>
+
         
       </div>
       <div>
-        <button className='deleteBtn'>Delete</button>
+        <button className='deleteBtn ' onClick={()=>deleteTodo(todo._id!)}>Delete</button>
         <button className='ProgressBtn'>Progress</button>
       </div>
     </div>
