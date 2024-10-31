@@ -35,12 +35,15 @@ const AllList:React.FC = () => {
           console.error("cant delete todo", error);
         }
       };  
-       
+       const updateMission = async (_id:string): Promise<void> =>{
+        const response = await axios.post(`${BASE_URL}/progress/${_id}`)
+        getTodoList()
+       }
   return (
     <div> 
         <div > <AddFrom  addTodoList={addTodoList}/></div>
         {AllTodoList.map((todo)=>{
-        return <TodoItem deleteTodo= {deleteTodo} todo={todo}/>
+        return <TodoItem deleteTodo= {deleteTodo} updateMission= {updateMission} todo={todo}/>
       })}
 
     </div>

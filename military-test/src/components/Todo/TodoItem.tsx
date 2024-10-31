@@ -4,9 +4,10 @@ import TodoInterface from '../../types'
 interface TodoParms{
     todo:TodoInterface;
     deleteTodo:(todoId:string )=>Promise<void>
+    updateMission:(todoId:string)=>Promise<void>
 }
 
-const TodoItem:React.FC<TodoParms> = ({todo,deleteTodo}) => {
+const TodoItem:React.FC<TodoParms> = ({todo,deleteTodo,updateMission}) => {
 
   return (
     <div>
@@ -19,8 +20,8 @@ const TodoItem:React.FC<TodoParms> = ({todo,deleteTodo}) => {
         
       </div>
       <div>
-        <button className='deleteBtn ' onClick={()=>deleteTodo(todo._id!)}>Delete</button>
-        <button className='ProgressBtn'>Progress</button>
+        <button className='deleteBtn' onClick={()=>deleteTodo(todo._id!)}>Delete</button>
+        <button className='ProgressBtn' onClick={()=>updateMission(todo._id!)}>Progress</button>
       </div>
     </div>
   )
