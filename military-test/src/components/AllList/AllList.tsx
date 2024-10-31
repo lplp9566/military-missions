@@ -43,7 +43,7 @@ const AllList:React.FC = () => {
     <div> 
         <div > <AddFrom  addTodoList={addTodoList}/></div>
         {AllTodoList.map((todo)=>{
-        return <TodoItem deleteTodo= {deleteTodo} updateMission= {updateMission} todo={todo}/>
+        return <TodoItem deleteTodo= {deleteTodo} updateMission= {updateMission} AllTodoList={AllTodoList} todo={todo}/>
       })}
 
     </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TodoInterface from "../../types";
+import "./AddFrom.css"
 
 interface AddFromProps {
   addTodoList: (todo: TodoInterface) => Promise<void>;
@@ -19,7 +20,8 @@ const AddFrom: React.FC<AddFromProps> = ({ addTodoList }) => {
     addTodoList(newTodo!);
   };
   return (
-    <form className="Todo-from" onSubmit={handleSubmit}>
+    <form className="from" onSubmit={handleSubmit}>
+        <p>enter your mission</p>
       <input name="name" type="text" placeholder="enter your name" />
 
       <select name="Status" id="Status">
@@ -29,6 +31,7 @@ const AddFrom: React.FC<AddFromProps> = ({ addTodoList }) => {
       </select>
       <select name="priority" id="priority">
         <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
         <option value="High">High</option>
       </select>
       <input
